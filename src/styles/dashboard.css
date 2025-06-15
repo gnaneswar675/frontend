@@ -1,0 +1,11 @@
+.status-select {
+  transition: all 0.2s ease;
+}
+
+.problem-card {
+  transition: background-color 0.2s ease;
+}
+
+.votes-count {
+  transition: all 0.2s ease;
+}

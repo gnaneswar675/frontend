@@ -1,0 +1,147 @@
+.head-dashboard {
+  padding: 2rem;
+  background-color: var(--green-50);
+  min-height: calc(100vh - 64px);
+}
+
+.dashboard-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.dashboard-header h1 {
+  color: #1a202c;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.dashboard-header p {
+  color: #4a5568;
+}
+
+.dashboard-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.stat-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--green-100);
+}
+
+.stat-number {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--green-600);
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  color: #4a5568;
+  font-size: 0.9rem;
+}
+
+.table-container {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  overflow-x: auto;
+}
+
+.problems-table {
+  width: 100%;
+  border-collapse: collapse;
+  white-space: nowrap;
+}
+
+.problems-table th {
+  background-color: var(--green-100);
+  color: #1a202c;
+  font-weight: 600;
+  padding: 1rem;
+  text-align: left;
+}
+
+.problems-table td {
+  padding: 1rem;
+  border-bottom: 1px solid var(--green-100);
+  color: #4a5568;
+  transition: background-color 0.2s ease;
+}
+
+.problems-table tr:hover {
+  background-color: var(--green-50);
+}
+
+.table-image {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.table-image:hover {
+  transform: scale(2);
+}
+
+.status-select {
+  transition: all 0.2s ease;
+  border: 1px solid var(--green-200);
+  padding: 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.status-select:focus {
+  outline: none;
+  border-color: var(--green-500);
+  box-shadow: 0 0 0 2px var(--green-100);
+}
+
+.status-select.status-pending {
+  color: #6B7280;
+  border-color: #E5E7EB;
+}
+
+.status-select.status-reviewing {
+  color: #92400E;
+  border-color: #FCD34D;
+}
+
+.status-select.status-completed {
+  color: #03543F;
+  border-color: #34D399;
+}
+
+.status-select.status-rejected {
+  color: #9B1C1C;
+  border-color: #F87171;
+}
+
+@media (max-width: 1024px) {
+  .head-dashboard {
+    padding: 1rem;
+  }
+
+  .problems-table {
+    font-size: 0.875rem;
+  }
+
+  .problems-table th,
+  .problems-table td {
+    padding: 0.75rem;
+  }
+
+  .table-image {
+    width: 40px;
+    height: 40px;
+  }
+}
