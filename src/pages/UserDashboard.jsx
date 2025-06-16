@@ -69,8 +69,10 @@ const UserDashboard = () => {
   return (
     <div className="user-dashboard">
       <div className="dashboard-header">
-        <h1 className="dashboard-title">Community Dashboard</h1>
-        <p className="dashboard-subtitle">Vote on issues that matter to your community</p>
+        <h1 className="dashboard-title">Citizen Dashboard</h1>
+        <p className="dashboard-subtitle">
+          Your voice matters! Report issues, vote for change, and help build a better community together.
+        </p>
       </div>
 
       <div className="dashboard-stats">
