@@ -57,75 +57,150 @@
 .problems-table {
   width: 100%;
   border-collapse: collapse;
-  white-space: nowrap;
+  white-space: normal; /* Changed from nowrap to normal */
 }
 
 .problems-table th {
   background-color: var(--green-100);
   color: #1a202c;
-  font-weight: 600;
+  font-weight: 700; /* Increased from 600 */
   padding: 1rem;
   text-align: left;
+  font-size: 1rem;
 }
 
 .problems-table td {
   padding: 1rem;
   border-bottom: 1px solid var(--green-100);
-  color: #4a5568;
+  color: #1a202c; /* Darker color for better visibility */
+  font-size: 0.95rem;
+  line-height: 1.5;
+  vertical-align: top; /* Align content to top */
+}
+
+/* Add specific column widths */
+.problems-table th:nth-child(1), /* Title */
+.problems-table td:nth-child(1) {
+  width: 15%;
+}
+
+.problems-table th:nth-child(2), /* Description */
+.problems-table td:nth-child(2) {
+  width: 25%;
+  max-width: 300px; /* Limit width */
+  white-space: pre-wrap; /* Preserve line breaks and wrap text */
+}
+
+.problems-table th:nth-child(3), /* Location */
+.problems-table td:nth-child(3) {
+  width: 15%;
+  padding-left: 0.5rem; /* Reduce space from description */
+}
+
+/* Style for long description text */
+.problems-table td:nth-child(2) {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+  min-width: 200px;
+}
+
+/* Hover effect for better row distinction */
+.problems-table tbody tr:hover {
+  background-color: var(--green-50);
   transition: background-color 0.2s ease;
 }
 
-.problems-table tr:hover {
-  background-color: var(--green-50);
+/* Add borders for better visibility */
+.problems-table th,
+.problems-table td {
+  border: 1px solid var(--green-200);
 }
 
+/* Make the table header sticky */
+.problems-table thead {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+/* Add these styles for table images */
 .table-image {
   width: 60px;
   height: 60px;
   object-fit: cover;
   border-radius: 6px;
   cursor: pointer;
-  transition: transform 0.2s;
+  transition: transform 0.2s ease;
 }
 
 .table-image:hover {
-  transform: scale(2);
+  transform: scale(1.1);
 }
 
-.status-select {
-  transition: all 0.2s ease;
-  border: 1px solid var(--green-200);
+/* Update the table cell containing images */
+.problems-table td:nth-child(6) {
+  width: 80px;
   padding: 0.5rem;
-  border-radius: 4px;
+  text-align: center;
+}
+
+/* Status dropdown styling */
+.status-select {
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid var(--green-200);
+  font-size: 0.9rem;
+  width: 120px;
   cursor: pointer;
+  background-color: white;
+  transition: all 0.2s ease;
+}
+
+.status-select:hover {
+  border-color: var(--green-400);
 }
 
 .status-select:focus {
   outline: none;
   border-color: var(--green-500);
-  box-shadow: 0 0 0 2px var(--green-100);
+  box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.1);
 }
 
+/* Status-specific colors */
 .status-select.status-pending {
-  color: #6B7280;
-  border-color: #E5E7EB;
+  color: #b45309;
+  background-color: #fef3c7;
 }
 
 .status-select.status-reviewing {
-  color: #92400E;
-  border-color: #FCD34D;
+  color: #1d4ed8;
+  background-color: #dbeafe;
 }
 
 .status-select.status-completed {
-  color: #03543F;
-  border-color: #34D399;
+  color: #047857;
+  background-color: #d1fae5;
 }
 
 .status-select.status-rejected {
-  color: #9B1C1C;
-  border-color: #F87171;
+  color: #dc2626;
+  background-color: #fee2e2;
 }
 
+/* Center the dropdown in its cell */
+.problems-table td:nth-child(7) {
+  text-align: center;
+}
+
+/* Dropdown option styling */
+.status-select option {
+  background: white;
+  color: #1a202c;
+  padding: 8px;
+}
+
+/* Responsive adjustments */
 @media (max-width: 1024px) {
   .head-dashboard {
     padding: 1rem;
@@ -143,5 +218,6 @@
   .table-image {
     width: 40px;
     height: 40px;
+    border-radius: 4px;
   }
 }
