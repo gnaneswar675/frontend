@@ -410,28 +410,25 @@ body {
 
 /* Problems Grid */
 .problems-grid {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
   padding: 0 1rem;
-  max-width: 1200px;
+  width: 100%;
+  max-width: 1400px; /* Increased from previous value */
   margin: 0 auto;
 }
 
 .problem-card {
-  flex: 0 0 300px;
-  background: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 16px;
+  background: white;
+  border-radius: 12px;
   padding: 1.5rem;
-  box-shadow: var(--shadow-md);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.problem-card:hover {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  transition: transform 0.2s;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Keep existing problem-card internal styles */
