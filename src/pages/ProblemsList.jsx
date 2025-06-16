@@ -1,1019 +1,418 @@
-/* Modern Reset & Variables */
-:root {
-  --green-50: #ecfdf5;
-  --green-100: #d1fae5;
-  --green-200: #a7f3d0;
-  --green-300: #6ee7b7;
-  --green-400: #34d399;
-  --green-500: #10b981;
-  --green-600: #059669;
-  --green-700: #047857;
-  
-  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-  
-  --gradient-primary: linear-gradient(135deg, #059669, #10b981);
-  --gradient-hover: linear-gradient(135deg, #047857, #059669);
-}
-
-/* Reset and Base Styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  line-height: 1.6;
-  color: #333333;
-  background-color: #ffffff;
-}
-
-/* Container */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-/* Landing Page */
-.landing-page {
-  min-height: 100vh;
-}
-
-/* Hero Section */
-.hero-section {
-  position: relative;
-  overflow: hidden;
-  padding: 6rem 0;
-  background: linear-gradient(135deg, var(--green-500), var(--green-700));
-}
-
-.floating-elements {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 1;
-}
-
-.floating-circle {
-  position: absolute;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.1);
-  animation: float 8s infinite ease-in-out;
-}
-
-.floating-square {
-  position: absolute;
-  background: rgba(255, 255, 255, 0.1);
-  transform: rotate(45deg);
-  animation: float 10s infinite ease-in-out;
-}
-
-.floating-dot {
-  position: absolute;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.3);
-  animation: pulse 3s infinite;
-}
-
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0) rotate(0deg);
-  }
-  50% {
-    transform: translateY(-20px) rotate(180deg);
-  }
-}
-
-@keyframes pulse {
-  0%, 100% {
-    transform: scale(1);
-    opacity: 0.3;
-  }
-  50% {
-    transform: scale(1.5);
-    opacity: 0.7;
-  }
-}
-
-.hero-content {
-  position: relative;
-  z-index: 2;
-  max-width: 1200px;
-  margin: 0 auto;
-  text-align: center;
-  color: white;
-}
-
-.hero-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: 
-    radial-gradient(circle at 20% 80%, var(--green-100) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, var(--green-50) 0%, transparent 50%);
-  z-index: 1;
-}
-
-.hero-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(255, 255, 255, 0.7);
-  z-index: 2;
-}
-
-.hero-content {
-  position: relative;
-  z-index: 3;
-  text-align: center;
-  color: #333333;
-  margin-bottom: 3rem;
-}
-
-.hero-icon {
-  margin-bottom: 2rem;
-}
-
-.hero-icon i {
-  font-size: 4rem;
-  color: var(--green-500);
-}
-
-.hero-title {
-  font-size: 3.5rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-  color: #333333;
-}
-
-.hero-subtitle {
-  font-size: 1.3rem;
-  margin-bottom: 2.5rem;
-  color: #666666;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.hero-buttons {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.btn {
-  padding: 1rem 2rem;
-  border: none;
-  border-radius: 12px;
-  font-size: 1.1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.btn-primary {
-  background: var(--green-500);
-  color: white;
-  box-shadow: 0 4px 15px rgba(34, 197, 94, 0.2);
-}
-
-.btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(56, 161, 105, 0.6);
-}
-
-.btn-secondary {
-  background: white;
-  color: var(--green-600);
-  border: 2px solid var(--green-200);
-  backdrop-filter: blur(10px);
-}
-
-.btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.2);
-  border-color: rgba(255, 255, 255, 0.5);
-  transform: translateY(-2px);
-}
-
-.hero-stats {
-  position: relative;
-  z-index: 3;
-  display: flex;
-  justify-content: center;
-  gap: 3rem;
-  flex-wrap: wrap;
-}
-
-.stat-item {
-  text-align: center;
-  color: white;
-  background: white;
-  border: 1px solid var(--green-100);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-  padding: 1.5rem;
-  border-radius: 16px;
-}
-
-.stat-number {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: var(--green-500);
-  margin-bottom: 0.5rem;
-}
-
-.stat-label {
-  font-size: 1rem;
-  color: #666666;
-}
-
-/* Section Styles */
-.features-section,
-.how-it-works-section,
-.problems-section {
-  padding: 5rem 0;
-}
-
-.features-section {
-  background: var(--green-50);
-}
-
-.how-it-works-section {
-  background: white;
-}
-
-.problems-section {
-  background: var(--green-50);
-}
-
-.section-header {
-  text-align: center;
-  margin-bottom: 4rem;
-}
-
-.section-title {
-  text-align: center;
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: var(--green-700);
-  margin-bottom: 2rem;
-}
-
-.section-subtitle {
-  font-size: 1.2rem;
-  color: #4a5568;
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-/* Features Grid */
-.features-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-}
-
-.feature-card {
-  background: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 20px;
-  padding: 2rem;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  overflow: hidden;
-}
-
-.feature-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 4px;
-  background: var(--gradient-primary);
-  transform: scaleX(0);
-  transition: transform 0.3s ease;
-}
-
-.feature-card:hover::before {
-  transform: scaleX(1);
-}
-
-.feature-card:hover {
-  transform: translateY(-10px);
-  box-shadow: var(--shadow-lg);
-}
-
-.feature-icon {
-  width: 80px;
-  height: 80px;
-  background: var(--green-500);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 1.5rem;
-}
-
-.feature-icon i {
-  font-size: 2rem;
-  color: white;
-}
-
-.feature-card h3 {
-  font-size: 1.4rem;
-  font-weight: 600;
-  color: #1a365d;
-  margin-bottom: 1rem;
-}
-
-.feature-card p {
-  color: #4a5568;
-  line-height: 1.7;
-}
-
-/* How It Works */
-.steps-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 2rem;
-  flex-wrap: wrap;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.step {
-  flex: 1;
-  min-width: 250px;
-  text-align: center;
-  background: white;
-  border: 1px solid var(--green-100);
-  padding: 2rem;
-  border-radius: 16px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  position: relative;
-}
-
-.step-number {
-  width: 60px;
-  height: 60px;
-  background: var(--green-500);
-  color: white;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin: 0 auto 1.5rem;
-  box-shadow: 0 4px 15px rgba(56, 161, 105, 0.3);
-}
-
-.step h3 {
-  font-size: 1.3rem;
-  font-weight: 600;
-  color: #1a365d;
-  margin-bottom: 1rem;
-}
-
-.step p {
-  color: #4a5568;
-  line-height: 1.6;
-}
-
-.step-connector {
-  width: 40px;
-  height: 2px;
-  background: var(--green-200);
-  flex-shrink: 0;
-}
-
-/* Problems Grid */
-.problems-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
-  padding: 0 1rem;
-  width: 100%;
-  max-width: 1400px; /* Increased from previous value */
-  margin: 0 auto;
-}
-
-.problem-card {
-  background: white;
-  border-radius: 12px;
-  padding: 1.5rem;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-  transition: transform 0.2s;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-/* Keep existing problem-card internal styles */
-
-.problem-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 1rem;
-  gap: 1rem;
-}
-
-.problem-title {
-  font-size: 1.3rem;
-  font-weight: 600;
-  color: #1a365d;
-  flex: 1;
-}
-
-.status-badge {
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
-  font-size: 0.85rem;
-  font-weight: 600;
-  text-transform: capitalize;
-  background: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  transition: all 0.3s ease;
-}
-
-.status-badge:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-sm);
-}
-
-.status-pending {
-  background: var(--green-50);
-  color: var(--green-600);
-  border: 1px solid var(--green-200);
-}
-
-.status-progress {
-  background: var(--green-100);
-  color: var(--green-600);
-  border: 1px solid var(--green-200);
-}
-
-.status-resolved {
-  background: var(--green-200);
-  color: var(--green-600);
-  border: 1px solid var(--green-300);
-}
-
-.status-default {
-  background: #edf2f7;
-  color: #4a5568;
-  border: 1px solid #cbd5e0;
-}
-
-.problem-description {
-  color: #4a5568;
-  margin-bottom: 1.5rem;
-  line-height: 1.6;
-}
-
-.problem-image {
-  border-radius: 12px;
-  overflow: hidden;
-  position: relative;
-}
-
-.problem-image img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  transition: transform 0.5s ease;
-}
-
-.problem-image:hover img {
-  transform: scale(1.05);
-}
-
-.problem-meta {
-  display: flex;
-  gap: 1.5rem;
-  margin-bottom: 1.5rem;
-  flex-wrap: wrap;
-}
-
-.meta-item {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: #4a5568;
-  font-size: 0.9rem;
-}
-
-.meta-item i {
-  color: #38a169;
-}
-
-.problem-actions {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1rem;
-}
-
-.votes-display {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: #4a5568;
-  font-weight: 500;
-}
-
-.votes-display i {
-  color: #38a169;
-}
-
-.vote-button {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 0.75rem 1.25rem;
-  background: var(--green-500);
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-size: 0.95rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.vote-button i {
-  font-size: 1.1rem;
-  display: inline-flex;
-  align-items: center;
-}
-
-.vote-button:hover {
-  background: var(--green-600);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
-}
-
-.vote-button:active {
-  transform: translateY(0);
-}
-
-/* Ensure text remains visible during hover */
-.vote-button:hover i,
-.vote-button:hover span {
-  opacity: 1;
-  color: white;
-}
-
-/* No Problems State */
-.no-problems {
-  grid-column: 1 / -1;
-  text-align: center;
-  padding: 4rem 2rem;
-  background: #f7fafc;
-  border-radius: 16px;
-  border: 2px dashed #cbd5e0;
-}
-
-.no-problems-icon i {
-  font-size: 4rem;
-  color: #68d391;
-  margin-bottom: 1.5rem;
-}
-
-.no-problems h3 {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: #1a365d;
-  margin-bottom: 1rem;
-}
-
-.no-problems p {
-  color: #4a5568;
-  font-size: 1.1rem;
-}
-
-/* Footer */
-.footer {
-  background: white;
-  border-top: 1px solid var(--green-100);
-  padding: 4rem 0 2rem;
-}
-
-.footer-content {
-  margin-bottom: 2rem;
-}
-
-.footer-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-}
-
-.footer-section h3 {
-  font-size: 1.3rem;
-  font-weight: 600;
-  margin-bottom: 1.5rem;
-  color: var(--green-600);
-}
-
-.footer-logo {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  margin-bottom: 1rem;
-}
-
-.footer-logo i {
-  font-size: 2rem;
-  color: var(--green-500);
-}
-
-.footer-section p {
-  color: #666666;
-  line-height: 1.7;
-  margin-bottom: 1.5rem;
-}
-
-.social-links {
-  display: flex;
-  gap: 1rem;
-}
-
-.social-link {
-  width: 40px;
-  height: 40px;
-  background: var(--green-50);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--green-600);
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-
-.social-link:hover {
-  background: var(--green-100);
-  transform: translateY(-2px);
-}
-
-.footer-links {
-  list-style: none;
-}
-
-.footer-links li {
-  margin-bottom: 0.75rem;
-}
-
-.footer-links a,
-.footer-link-button {
-  color: #666666;
-  text-decoration: none;
-  transition: color 0.3s ease;
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: inherit;
-  font-family: inherit;
-  padding: 0;
-}
-
-.footer-links a:hover,
-.footer-link-button:hover {
-  color: var(--green-500);
-}
-
-.contact-info {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.contact-item {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  color: #666666;
-}
-
-.contact-item i {
-  color: var(--green-500);
-  width: 20px;
-}
-
-.footer-bottom {
-  border-top: 1px solid var(--green-100);
-  padding-top: 2rem;
-}
-
-.footer-bottom-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
-.footer-bottom-content p {
-  color: #666666;
-  margin: 0;
-}
-
-.footer-bottom-links {
-  display: flex;
-  gap: 2rem;
-}
-
-.footer-bottom-links a {
-  color: #666666;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.footer-bottom-links a:hover {
-  color: var(--green-500);
-}
-
-/* Add these styles for the logged-in dashboard view */
-.problems-section.logged-in {
-  padding-top: 2rem;
-  min-height: calc(100vh - 64px);
-  background-color: var(--green-50);
-}
-
-.dashboard-header {
-  margin-top: 4.5rem;
-  text-align: center;
-  margin-bottom: 2rem;
-}
-
-.dashboard-header h1 {
-  color: #1a202c;
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
-}
-
-.dashboard-header p {
-  color: #4a5568;
-}
-
-.dashboard-stats {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1.5rem;
-  margin: 2rem 0;
-}
-
-.stat-card {
-  background: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 16px;
-  padding: 1.5rem;
-  text-align: center;
-  transition: all 0.3s ease;
-}
-
-.stat-card:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-lg);
-}
-
-.stat-number {
-  font-size: 2.5rem;
-  font-weight: 700;
-  background: var(--gradient-primary);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  margin-bottom: 0.5rem;
-}
-
-/* Replace emoji icons with Font Awesome icons */
-[class^="icon-"]::before {
-  font-family: "Font Awesome 6 Free";
-  font-weight: 900;
-  font-style: normal;
-  font-display: swap;
-}
-
-[class^="icon-brands-"]::before {
-  font-family: "Font Awesome 6 Brands";
-}
-
-/* Icon Styles */
-.icon-community::before { content: "\f015"; } /* house */
-.icon-report::before { content: "\f15c"; } /* file-lines */
-.icon-vote::before { content: "\f164"; } /* thumbs-up */
-.icon-track::before { content: "\f080"; } /* chart-line */
-.icon-dashboard::before { content: "\f080"; } /* chart-bar */
-.icon-location::before { content: "\f3c5"; } /* map-marker-alt */
-.icon-calendar::before { content: "\f133"; } /* calendar */
-.icon-thumbs-up::before { content: "\f164"; } /* thumbs-up */
-.icon-check-circle::before { content: "\f058"; } /* check-circle */
-.icon-mail::before { content: "\f0e0"; } /* envelope */
-.icon-phone::before { content: "\f095"; } /* phone */
-.icon-notification::before { content: "\f0f3"; } /* bell */
-.icon-map::before { content: "\f279"; } /* map */
-
-/* Social Media Icons */
-.icon-facebook::before { content: "\f09a"; font-family: "Font Awesome 6 Brands"; }
-.icon-twitter::before { content: "\f099"; font-family: "Font Awesome 6 Brands"; }
-.icon-instagram::before { content: "\f16d"; font-family: "Font Awesome 6 Brands"; }
-.icon-linkedin::before { content: "\f08c"; font-family: "Font Awesome 6 Brands"; }
-
-/* Icon container styles */
-[class^="icon-"] {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  text-rendering: auto;
-  -webkit-font-smoothing: antialiased;
-}
-
-/* Adjust icon sizes based on context */
-.feature-icon [class^="icon-"]::before {
-  font-size: 1.5rem;
-}
-
-.social-link [class^="icon-"]::before {
-  font-size: 1.25rem;
-}
-
-.meta-item [class^="icon-"]::before {
-  font-size: 1rem;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .hero-title {
-    font-size: 2.5rem;
-  }
-  
-  .hero-subtitle {
-    font-size: 1.1rem;
-  }
-  
-  .hero-buttons {
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .hero-stats {
-    gap: 1.5rem;
-  }
-  
-  .stat-item {
-    padding: 1rem;
-  }
-  
-  .stat-number {
-    font-size: 2rem;
-  }
-  
-  .section-title {
-    font-size: 2rem;
-  }
-  
-  .steps-container {
-    flex-direction: column;
-  }
-  
-  .step-connector {
-    width: 2px;
-    height: 40px;
-    transform: rotate(90deg);
-  }
-  
-  .problems-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .problem-header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  
-  .problem-meta {
-    flex-direction: column;
-    gap: 0.75rem;
-  }
-  
-  .problem-actions {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 1rem;
-  }
-  
-  .footer-bottom-content {
-    flex-direction: column;
-    text-align: center;
-  }
-}
-
-@media (max-width: 480px) {
-  .container {
-    padding: 0 15px;
-  }
-  
-  .hero-title {
-    font-size: 2rem;
-  }
-  
-  .hero-icon i {
-    font-size: 3rem;
-  }
-  
-  .btn {
-    padding: 0.875rem 1.5rem;
-    font-size: 1rem;
-  }
-  
-  .feature-card,
-  .step,
-  .problem-card {
-    padding: 1.5rem;
-  }
-  
-  .section-title {
-    font-size: 1.75rem;
-  }
-  
-  .footer {
-    padding: 3rem 0 1.5rem;
-  }
-}
-
-/* Modern Loading Animation */
-@keyframes shimmer {
-  0% {
-    background-position: -200% 0;
-  }
-  100% {
-    background-position: 200% 0;
-  }
-}
-
-.loading {
-  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
-  background-size: 200% 100%;
-  animation: shimmer 1.5s infinite;
-  border-radius: 8px;
-}
-
-/* Smooth Scrolling */
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 80px;
-}
-
-/* Modern Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--green-50);
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--green-300);
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--green-400);
-}
-
-/* Add smooth transitions for interactive elements */
-* {
-  transition: background-color 0.3s ease,
-              transform 0.3s ease,
-              box-shadow 0.3s ease,
-              color 0.3s ease;
-}
+import { useEffect, useState, useMemo, useRef } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { voteProblem } from '../api/problems';
+import { getToken } from '../utils/auth';
+import config from '../config/config';
+import './problemslist.css';
+
+const ProblemsList = ({ showLandingPage = true }) => {
+  const [problems, setProblems] = useState([]);
+  const isLoggedIn = !!getToken();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const problemsRef = useRef(null);
+  const featuresRef = useRef(null);
+  const howItWorksRef = useRef(null);
+  const mounted = useRef(false);
+
+  const handleClick = (type) => {
+    switch (type) {
+      case 'privacy':
+        navigate('/privacy');
+        break;
+      case 'terms':
+        navigate('/terms');
+        break;
+      default:
+        break;
+    }
+  };
+
+  useEffect(() => {
+    loadProblems();
+  }, []);
+
+  useEffect(() => {
+    if (location.state?.scrollTo) {
+      const sectionRefs = {
+        problems: problemsRef,
+        features: featuresRef,
+        howItWorks: howItWorksRef
+      };
+
+      const targetRef = sectionRefs[location.state.scrollTo];
+      if (targetRef?.current) {
+        targetRef.current.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    }
+  }, [location.state]);
+
+  useEffect(() => {
+    if (!mounted.current) {
+      mounted.current = true;
+      
+      // Handle initial navigation
+      const { scrollTo } = location.state || {};
+      if (scrollTo) {
+        setTimeout(() => {
+          const element = document.getElementById(scrollTo);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }, 100);
+      }
+    }
+  }, [location]);
+
+  const loadProblems = async () => {
+    try {
+      const response = await fetch(`${config.API_BASE_URL}/api/problems`);
+      const data = await response.json();
+      setProblems(data);
+    } catch (error) {
+      console.error('Error loading problems:', error);
+    }
+  };
+
+  const handleVote = async (id) => {
+    await voteProblem(id);
+    loadProblems();
+  };
+
+  const getStatusClass = (status) => {
+    switch (status) {
+      case 'pending': return 'status-pending';
+      case 'in-progress': return 'status-progress';
+      case 'resolved': return 'status-resolved';
+      default: return 'status-default';
+    }
+  };
+
+  // Get top 4 pending/reviewing problems by votes
+  const topProblems = useMemo(() => {
+    return [...problems]
+      .filter(problem => ['pending', 'reviewing'].includes(problem.status))
+      .sort((a, b) => b.votes - a.votes)
+      .slice(0, 3);
+  }, [problems]);
+
+  const handleVoteOrLogin = (problemId) => {
+    if (!isLoggedIn) {
+      navigate('/login', { state: { returnTo: '/', action: 'vote', problemId } });
+      return;
+    }
+    handleVote(problemId);
+  };
+
+  const handleReportOrLogin = () => {
+    if (!isLoggedIn) {
+      navigate('/login', { state: { returnTo: '/report', action: 'report' } });
+      return;
+    }
+    // Handle report logic for logged in users
+  };
+
+  return (
+    <div className="landing-page">
+      {!isLoggedIn ? (
+        // Show these sections only for non-logged in users
+        <>
+          {/* Hero Section */}
+          <section className="hero-section">
+            <div className="hero-overlay"></div>
+            <div className="hero-background"></div>
+            <div className="container">
+              <div className="hero-content">
+                <div className="hero-icon">
+                  <i className="icon-community"></i>
+                </div>
+                <h1 className="hero-title">Community Problem Reporting Portal</h1>
+                <p className="hero-subtitle">Empowering communities to identify, report, and resolve local issues together</p>
+                <div className="hero-buttons">
+                  <button className="btn btn-primary" onClick={handleReportOrLogin}>
+                    Report an Issue
+                  </button>
+                </div>
+              </div>
+              <div className="hero-stats">
+                <div className="stat-item">
+                  <div className="stat-number">90+</div>
+                  <div className="stat-label"><b>Active Issues</b></div>
+                </div>
+                <div className="stat-item">
+                  <div className="stat-number">50+</div>
+                  <div className="stat-label"><b>Resolved</b></div>
+                </div>
+                <div className="stat-item">
+                  <div className="stat-number">1000+</div>
+                  <div className="stat-label"><b>Total Votes</b></div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Features Section */}
+          <section id="features" className="features-section">
+            <div className="container">
+              <div className="section-header">
+                <h2 className="section-title">Key Features</h2>
+                <p className="section-subtitle">Discover what makes our platform effective</p>
+              </div>
+              <div className="features-grid">
+                <div className="feature-card">
+                  <div className="feature-icon">
+                    <i className="icon-report"></i>
+                  </div>
+                  <h3>Problem Reporting</h3>
+                  <p>Easy-to-use interface for reporting community issues with photo uploads and detailed descriptions</p>
+                </div>
+                <div className="feature-card">
+                  <div className="feature-icon">
+                    <i className="icon-vote"></i>
+                  </div>
+                  <h3>Community Voting</h3>
+                  <p>Vote on issues to highlight their importance to local authorities and prioritize solutions</p>
+                </div>
+                <div className="feature-card">
+                  <div className="feature-icon">
+                    <i className="icon-track"></i>
+                  </div>
+                  <h3>Status Tracking</h3>
+                  <p>Real-time tracking of problem resolution status from report to completion</p>
+                </div>
+                <div className="feature-card">
+                  <div className="feature-icon">
+                    <i className="icon-dashboard"></i>
+                  </div>
+                  <h3>Head Dashboard</h3>
+                  <p>Dedicated dashboard for village/city heads to manage and respond to reported issues</p>
+                </div>
+                <div className="feature-card">
+                  <div className="feature-icon">
+                    <i className="icon-notification"></i>
+                  </div>
+                  <h3>Smart Notifications</h3>
+                  <p>Stay informed with real-time updates about problem status changes and community responses in your area</p>
+                </div>
+                <div className="feature-card">
+                  <div className="feature-icon">
+                    <i className="icon-map"></i>
+                  </div>
+                  <h3>Interactive Map</h3>
+                  <p>Visualize reported issues on an interactive map to better understand problem areas in your community</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* How It Works Section */}
+          <section id="how-it-works" className="how-it-works-section">
+            <div className="container">
+              <div className="section-header">
+                <h2 className="section-title">How It Works</h2>
+                <p className="section-subtitle">Simple steps to make your community better</p>
+              </div>
+              <div className="steps-container">
+                <div className="step">
+                  <div className="step-number">1</div>
+                  <div className="step-content">
+                    <h3>Report an Issue</h3>
+                    <p>Register and submit details about local problems with photos and precise location information</p>
+                  </div>
+                </div>
+                <div className="step-connector"></div>
+                <div className="step">
+                  <div className="step-number">2</div>
+                  <div className="step-content">
+                    <h3>Community Engagement</h3>
+                    <p>Other residents can view and vote on reported issues to show community support</p>
+                  </div>
+                </div>
+                <div className="step-connector"></div>
+                <div className="step">
+                  <div className="step-number">3</div>
+                  <div className="step-content">
+                    <h3>Authority Review</h3>
+                    <p>Local heads monitor and address prioritized problems based on community feedback</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </>
+      ) : null}
+
+      {/* User Dashboard / Problems Section */}
+      <section id="problems" className={`problems-section ${isLoggedIn ? 'logged-in' : ''}`}>
+        <div className="container" ref={problemsRef}>
+          <div className="dashboard-header">
+            <h1>Community Problems</h1>
+            <p>Vote on issues that matter to your community</p>
+          </div>
+
+          <div className="dashboard-stats">
+            <div className="stat-card">
+              <div className="stat-number">90+</div>
+              <div className="stat-label"><b>Total Issues</b></div>
+            </div>
+            <div className="stat-card">
+              <div className="stat-number">
+                50+
+              </div>
+              <div className="stat-label"><b>Resolved</b></div>
+            </div>
+            <div className="stat-card">
+              <div className="stat-number">
+                1000+
+              </div>
+              <div className="stat-label"><b>Total Votes</b></div>
+            </div>
+          </div>
+
+          <div className="problems-grid">
+           
+          </div>
+
+          <div className="top-problems" >
+            <h2 className="section-title">Top Voted Active Issues</h2>
+            <div className="problems-grid">
+              {topProblems.map((problem) => (
+                <div key={problem._id} className="problem-card">
+                  <div className="problem-header">
+                    <h3 className="problem-title">{problem.title}</h3>
+                    <span className={`status-badge ${getStatusClass(problem.status)}`}>
+                      {problem.status.replace('-', ' ')}
+                    </span>
+                  </div>
+                  <p className="problem-description">{problem.description}</p>
+                  {problem.image && (
+                    <div className="problem-image">
+                      <img src={`${config.UPLOAD_PATH}/${problem.image}`} alt="Problem" />
+                    </div>
+                  )}
+                  <div className="problem-meta">
+                    <div className="meta-item">
+                      <i className="icon-location"></i>
+                      <span>{problem.location || 'Location not specified'}</span>
+                    </div>
+                    <div className="meta-item">
+                      <i className="icon-calendar"></i>
+                      <span>{new Date(problem.createdAt).toLocaleDateString()}</span>
+                    </div>
+                  </div>
+                  <div className="problem-actions">
+                    <div className="votes-display">
+                      <i className="icon-thumbs-up"></i>
+                      <span>{problem.votes} votes</span>
+                    </div>
+                    <button 
+                      className="vote-button" 
+                      onClick={() => handleVoteOrLogin(problem._id)}
+                    >
+                      <i className="icon-vote"></i>
+                      Vote
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      {!isLoggedIn && (
+        // Show footer only for non-logged in users
+        <footer className="footer">
+          <div className="container">
+            <div className="footer-content">
+              <div className="footer-grid">
+                <div className="footer-section">
+                  <div className="footer-logo">
+                    <i className="icon-community"></i>
+                    <h3>Community Reporter</h3>
+                  </div>
+                  <p>Making communities better through collaborative problem-solving and citizen engagement</p>
+                  <div className="social-links">
+                    <a href="https://facebook.com" className="social-link"><i className="icon-facebook"></i></a>
+                    <a href="https://twitter.com" className="social-link"><i className="icon-twitter"></i></a>
+                    <a href="https://instagram.com" className="social-link"><i className="icon-instagram"></i></a>
+                    <a href="https://linkedin.com" className="social-link"><i className="icon-linkedin"></i></a>
+                  </div>
+                </div>
+                <div className="footer-section">
+                  <h3>Quick Links</h3>
+                  <ul className="footer-links">
+                    <li><a href="/login">Login</a></li>
+                    <li><a href="/register">Register</a></li>
+                    <li><a href="/report">Report Problem</a></li>
+                    <li><a href="/dashboard">Dashboard</a></li>
+                    <li><a href="/about">About Us</a></li>
+                  </ul>
+                </div>
+                <div className="footer-section">
+                  <h3>Support</h3>
+                  <ul className="footer-links">
+                    <li><a href="/help">Help Center</a></li>
+                    <li><a href="/faq">FAQ</a></li>
+                    {/* Replace the anchor tags with proper hrefs or buttons */}
+                    <li>
+                      <button 
+                        type="button" 
+                        className="footer-link-button" 
+                        onClick={() => handleClick('privacy')}
+                      >
+                        Privacy Policy
+                      </button>
+                    </li>
+                    <li>
+                      <button 
+                        type="button" 
+                        className="footer-link-button" 
+                        onClick={() => handleClick('terms')}
+                      >
+                        Terms of Service
+                      </button>
+                    </li>
+                  </ul>
+                </div>
+                <div className="footer-section">
+                  <h3>Contact Us</h3>
+                  <div className="contact-info">
+                    <div className="contact-item">
+                      <i className="icon-mail"></i>
+                      <span>support@community.com</span>
+                    </div>
+                    <div className="contact-item">
+                      <i className="icon-phone"></i>
+                      <span>(123) 456-7890</span>
+                    </div>
+                    <div className="contact-item">
+                      <i className="icon-location"></i>
+                      <span>123 Community St, City, State</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="footer-bottom">
+              <div className="footer-bottom-content">
+                <p>&copy; 2025 Community Problem Reporter. All rights reserved.</p>
+                <div className="footer-bottom-links">
+                  <a href="/privacy">Privacy</a>
+                  <a href="/terms">Terms</a>
+                  <a href="/cookies">Cookies</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </footer>
+      )}
+    </div>
+  );
+};
+
+export default ProblemsList;
