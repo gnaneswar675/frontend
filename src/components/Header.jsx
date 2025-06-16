@@ -53,7 +53,7 @@ const Header = () => {
           </>
         ) : (
           <>
-            <Link to="/dashboard" className="header-link">Dashboard</Link>
+            <Link to="/dashboard" className="header-link">All Problems</Link>
             <Link to="/report" className="header-link">Report Problem</Link>
             <button onClick={handleLogout} className="header-button">Logout</button>
           </>
