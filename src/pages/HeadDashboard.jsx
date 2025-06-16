@@ -5,7 +5,45 @@ import './headashboard.css';
 
 const HeadDashboard = () => {
   const [problems, setProblems] = useState([]);
+  const [sortConfig, setSortConfig] = useState({ key: null, direction: 'ascending' });
   const [, setError] = useState(null);
+
+  // Sorting function
+  const sortProblems = (problemsToSort, key) => {
+    return [...problemsToSort].sort((a, b) => {
+      if (key === 'votes') {
+        return b.votes - a.votes; // Always sort votes in descending order
+      }
+
+      if (key === 'date') {
+        return sortConfig.direction === 'ascending' 
+          ? new Date(a.createdAt) - new Date(b.createdAt)
+          : new Date(b.createdAt) - new Date(a.createdAt);
+      }
+
+      if (a[key] < b[key]) return sortConfig.direction === 'ascending' ? -1 : 1;
+      if (a[key] > b[key]) return sortConfig.direction === 'ascending' ? 1 : -1;
+      return 0;
+    });
+  };
+
+  // Handle column header click
+  const handleSort = (key) => {
+    let direction = 'ascending';
+    if (sortConfig.key === key && sortConfig.direction === 'ascending') {
+      direction = 'descending';
+    }
+    setSortConfig({ key, direction });
+
+    const sortedProblems = sortProblems(problems, key);
+    setProblems(sortedProblems);
+  };
+
+  // Get sort direction indicator
+  const getSortIndicator = (columnName) => {
+    if (sortConfig.key !== columnName) return '↕';
+    return sortConfig.direction === 'ascending' ? '↑' : '↓';
+  };
 
   const loadProblems = async () => {
     try {
@@ -44,7 +82,9 @@ const HeadDashboard = () => {
     <div className="head-dashboard">
       <div className="dashboard-header">
         <h1>Head Dashboard</h1>
-        <p>Manage and update community reported problems</p>
+        <div className="welcome-message">
+          <h3>Welcome, <strong>Community Leader!</strong> Your innovative decisions can drive positive change. Let's solve problems together and make our community better!</h3>
+        </div>
       </div>
 
       <div className="dashboard-stats">
@@ -73,10 +113,16 @@ const HeadDashboard = () => {
               <th>Title</th>
               <th>Description</th>
               <th>Location</th>
-              <th>Date</th>
-              <th>Votes</th>
+              <th onClick={() => handleSort('date')} className="sortable-header">
+                Date {getSortIndicator('date')}
+              </th>
+              <th onClick={() => handleSort('votes')} className="sortable-header">
+                Votes {getSortIndicator('votes')}
+              </th>
               <th>Image</th>
-              <th>Status</th>
+              <th onClick={() => handleSort('status')} className="sortable-header">
+                Status {getSortIndicator('status')}
+              </th>
             </tr>
           </thead>
           <tbody>
