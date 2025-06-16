@@ -139,16 +139,16 @@ const ProblemsList = ({ showLandingPage = true }) => {
               </div>
               <div className="hero-stats">
                 <div className="stat-item">
-                  <div className="stat-number">{problems.length}</div>
-                  <div className="stat-label">Active Issues</div>
+                  <div className="stat-number">90+</div>
+                  <div className="stat-label"><b>Active Issues</b></div>
                 </div>
                 <div className="stat-item">
-                  <div className="stat-number">39</div>
-                  <div className="stat-label">Resolved</div>
+                  <div className="stat-number">50+</div>
+                  <div className="stat-label"><b>Resolved</b></div>
                 </div>
                 <div className="stat-item">
-                  <div className="stat-number">{problems.reduce((sum, p) => sum + p.votes, 0)}</div>
-                  <div className="stat-label">Total Votes</div>
+                  <div className="stat-number">1000+</div>
+                  <div className="stat-label"><b>Total Votes</b></div>
                 </div>
               </div>
             </div>
@@ -255,20 +255,20 @@ const ProblemsList = ({ showLandingPage = true }) => {
 
           <div className="dashboard-stats">
             <div className="stat-card">
-              <div className="stat-number">{problems.length}</div>
-              <div className="stat-label">Total Issues</div>
+              <div className="stat-number">90+</div>
+              <div className="stat-label"><b>Total Issues</b></div>
             </div>
             <div className="stat-card">
               <div className="stat-number">
-                39
+                50+
               </div>
-              <div className="stat-label">Resolved</div>
+              <div className="stat-label"><b>Resolved</b></div>
             </div>
             <div className="stat-card">
               <div className="stat-number">
-                {problems.reduce((sum, p) => sum + p.votes, 0)}
+                1000+
               </div>
-              <div className="stat-label">Total Votes</div>
+              <div className="stat-label"><b>Total Votes</b></div>
             </div>
           </div>
 
