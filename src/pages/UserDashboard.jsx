@@ -60,8 +60,9 @@ const UserDashboard = () => {
   const getStatusClass = (status) => {
     switch (status) {
       case 'pending': return 'status-pending';
-      case 'in-progress': return 'status-progress';
-      case 'resolved': return 'status-resolved';
+      case 'reviewing': return 'status-progress'; // Updated to match backend status
+      case 'completed': return 'status-resolved'; // Changed from 'resolved' to 'completed'
+      case 'rejected': return 'status-rejected';
       default: return 'status-default';
     }
   };
@@ -82,7 +83,7 @@ const UserDashboard = () => {
         </div>
         <div className="stat-card">
           <div className="stat-number">
-            {problems.filter(p => p.status === 'resolved').length}
+            {problems.filter(p => p.status === 'completed').length}
           </div>
           <div className="stat-label">Resolved</div>
         </div>
