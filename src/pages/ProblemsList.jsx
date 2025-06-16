@@ -96,7 +96,7 @@ const ProblemsList = ({ showLandingPage = true }) => {
     return [...problems]
       .filter(problem => ['pending', 'reviewing'].includes(problem.status))
       .sort((a, b) => b.votes - a.votes)
-      .slice(0, 4);
+      .slice(0, 3);
   }, [problems]);
 
   const handleVoteOrLogin = (problemId) => {
@@ -143,7 +143,7 @@ const ProblemsList = ({ showLandingPage = true }) => {
                   <div className="stat-label">Active Issues</div>
                 </div>
                 <div className="stat-item">
-                  <div className="stat-number">{problems.filter(p => p.status === 'resolved').length}</div>
+                  <div className="stat-number">39</div>
                   <div className="stat-label">Resolved</div>
                 </div>
                 <div className="stat-item">
@@ -260,7 +260,7 @@ const ProblemsList = ({ showLandingPage = true }) => {
             </div>
             <div className="stat-card">
               <div className="stat-number">
-                {problems.filter(p => p.status === 'resolved').length}
+                39
               </div>
               <div className="stat-label">Resolved</div>
             </div>
