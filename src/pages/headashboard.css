@@ -67,6 +67,7 @@
   padding: 1rem;
   text-align: left;
   font-size: 1rem;
+  transition: background-color 0.2s ease;
 }
 
 .problems-table td {
@@ -198,6 +199,48 @@
   background: white;
   color: #1a202c;
   padding: 8px;
+}
+
+/* Sortable header styling */
+.sortable-header {
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+  padding-right: 1.5rem;
+}
+
+.sortable-header:hover {
+  background-color: var(--green-200);
+}
+
+.sortable-header::after {
+  content: attr(data-sort);
+  position: absolute;
+  right: 0.5rem;
+  color: var(--green-600);
+}
+
+/* Welcome message styling */
+.welcome-message {
+  background: linear-gradient(135deg, var(--green-50), var(--green-100));
+  padding: 1.5rem 2rem;
+  border-radius: 12px;
+  border-left: 4px solid var(--green-500);
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.welcome-message p {
+  color: var(--green-800);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin: 0;
+  font-weight: 500;
+}
+
+.welcome-message strong {
+  color: var(--green-600);
+  font-weight: 600;
 }
 
 /* Responsive adjustments */
