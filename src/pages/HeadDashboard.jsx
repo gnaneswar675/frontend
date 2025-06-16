@@ -83,7 +83,15 @@ const HeadDashboard = () => {
             {problems.map((problem) => (
               <tr key={problem._id}>
                 <td>{problem.title}</td>
-                <td>{problem.description}</td>
+                <td>
+                  <div style={{ 
+                    maxHeight: '120px', 
+                    overflowY: 'auto', 
+                    paddingRight: '8px' 
+                  }}>
+                    {problem.description}
+                  </div>
+                </td>
                 <td>{problem.location || 'Not specified'}</td>
                 <td>{new Date(problem.createdAt).toLocaleDateString()}</td>
                 <td>{problem.votes}</td>
