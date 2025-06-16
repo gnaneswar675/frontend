@@ -5,19 +5,47 @@
 }
 
 .dashboard-header {
-  margin-bottom: 2rem;
   text-align: center;
+  padding: 1rem;
+  
 }
 
 .dashboard-title {
+  font-size: 2rem;
   color: var(--green-800);
-  font-size: 1.75rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0;
+  font-weight: 740; /* Increased from 600 to 700 for bolder text */
+  letter-spacing: -0.5px; /* Added for better bold text appearance */
 }
 
 .dashboard-subtitle {
-  color: var(--green-600);
-  font-size: 1rem;
+  color: var(--green-700);
+  font-size: 1.1rem;
+  font-weight: 500;
+  text-align: center;
+  padding: 0.75rem 2rem;
+  margin: 0.25rem auto;
+  max-width: 100%;
+  line-height: 1.5;
+  letter-spacing: 0.3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background: linear-gradient(to right, transparent, var(--green-50), transparent);
+  border-radius: 8px;
+}
+
+.dashboard-subtitle::before {
+  content: '✨';
+  margin-right: 10px;
+  font-size: 1.2rem;
+  opacity: 0.8;
+}
+
+.dashboard-subtitle:hover {
+  transform: translateY(-1px);
+  transition: transform 0.2s ease;
 }
 
 .dashboard-stats {
