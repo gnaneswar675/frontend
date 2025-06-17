@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { fetchProblems, updateProblemStatus } from '../api/problems';
-import config from '../config/config';
 import './headashboard.css';
 
 const HeadDashboard = () => {
@@ -143,11 +142,13 @@ const HeadDashboard = () => {
                 <td>{problem.votes}</td>
                 <td>
                   {problem.image && (
-                    <img 
-                      src={`${config.UPLOAD_PATH}/${problem.image}`} 
-                      alt="Problem" 
-                      className="table-image"
-                    />
+                    <div className="problem-image">
+                      <img 
+                        src={problem.image.url} 
+                        alt={problem.title}
+                        className="problem-image"
+                      />
+                    </div>
                   )}
                 </td>
                 <td>
