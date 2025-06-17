@@ -1,0 +1,435 @@
+.head-dashboard {
+  padding: 2rem;
+  background-color: var(--green-50);
+  min-height: calc(100vh - 64px);
+}
+
+.dashboard-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.dashboard-header h1 {
+  color: #1a202c;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.dashboard-header p {
+  color: #4a5568;
+}
+
+.dashboard-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.stat-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--green-100);
+}
+
+.stat-number {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--green-600);
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  color: #4a5568;
+  font-size: 0.9rem;
+}
+
+.table-container {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  overflow-x: auto;
+}
+
+.problems-table {
+  width: 100%;
+  border-collapse: collapse;
+  white-space: normal; /* Changed from nowrap to normal */
+}
+
+.problems-table th {
+  background-color: var(--green-100);
+  color: #1a202c;
+  font-weight: 700; /* Increased from 600 */
+  padding: 1rem;
+  text-align: left;
+  font-size: 1rem;
+  transition: background-color 0.2s ease;
+}
+
+.problems-table td {
+  padding: 1rem;
+  border-bottom: 1px solid var(--green-100);
+  color: #1a202c; /* Darker color for better visibility */
+  font-size: 0.95rem;
+  line-height: 1.5;
+  vertical-align: top; /* Align content to top */
+}
+
+/* Update column widths */
+.problems-table th:nth-child(1), /* Title */
+.problems-table td:nth-child(1) {
+  width: 12%;
+}
+
+.problems-table th:nth-child(2), /* Description */
+.problems-table td:nth-child(2) {
+  width: 30%;
+  max-width: 300px;
+}
+
+.problems-table th:nth-child(3), /* Location */
+.problems-table td:nth-child(3) {
+  width: 12%;
+}
+
+.problems-table th:nth-child(4), /* Date */
+.problems-table td:nth-child(4) {
+  width: 10%;
+}
+
+.problems-table th:nth-child(5), /* Votes */
+.problems-table td:nth-child(5) {
+  width: 8%;
+}
+
+.problems-table th:nth-child(6), /* Status */
+.problems-table td:nth-child(6) {
+  width: 10%;
+}
+
+.problems-table th:nth-child(7), /* Image */
+.problems-table td:nth-child(7) {
+  width: 18%;
+}
+
+/* Center align all table cells */
+.problems-table th,
+.problems-table td {
+  text-align: center;
+  vertical-align: middle;
+  padding: 0.75rem;
+}
+
+/* Style for long description text */
+.problems-table td:nth-child(2) {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+  min-width: 200px;
+}
+
+/* Hover effect for better row distinction */
+.problems-table tbody tr:hover {
+  background-color: var(--green-50);
+  transition: background-color 0.2s ease;
+}
+
+/* Add borders for better visibility */
+.problems-table th,
+.problems-table td {
+  border: 1px solid var(--green-200);
+}
+
+/* Make the table header sticky */
+.problems-table thead {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+/* Add these styles for table images */
+.table-image {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.table-image:hover {
+  transform: scale(1.1);
+}
+
+/* Enhanced image styling */
+.problem-image {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.problem-image:hover {
+  transform: scale(1.5);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+}
+
+/* Update the table cell containing images */
+.problems-table td:nth-child(6) {
+  width: 100px;
+  padding: 0.5rem;
+  text-align: center;
+  vertical-align: middle;
+}
+
+/* Add this for image container */
+.problem-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  position: relative;
+}
+
+/* Status dropdown styling */
+.status-select {
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid var(--green-200);
+  font-size: 0.9rem;
+  width: 120px;
+  cursor: pointer;
+  background-color: white;
+  transition: all 0.2s ease;
+  text-align: center;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 0.5rem center;
+  background-size: 1em;
+  padding-right: 2rem;
+}
+
+.status-select:hover {
+  border-color: var(--green-400);
+}
+
+.status-select:focus {
+  outline: none;
+  border-color: var(--green-500);
+  box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.1);
+}
+
+/* Status-specific colors */
+.status-select.status-pending {
+  color: #b45309;
+  background-color: #fef3c7;
+}
+
+.status-select.status-reviewing {
+  color: #1d4ed8;
+  background-color: #dbeafe;
+}
+
+.status-select.status-completed {
+  color: #047857;
+  background-color: #d1fae5;
+}
+
+.status-select.status-rejected {
+  color: #dc2626;
+  background-color: #fee2e2;
+}
+
+/* Dropdown options styling */
+.status-select option {
+  padding: 10px;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+/* Status-specific colors for options */
+.status-select option[value="pending"] {
+  background-color: #fef3c7;
+  color: #b45309;
+}
+
+.status-select option[value="reviewing"] {
+  background-color: #dbeafe;
+  color: #1d4ed8;
+}
+
+.status-select option[value="completed"] {
+  background-color: #d1fae5;
+  color: #047857;
+}
+
+.status-select option[value="rejected"] {
+  background-color: #fee2e2;
+  color: #dc2626;
+}
+
+/* Hover effect for options */
+.status-select option:hover {
+  filter: brightness(95%);
+}
+
+/* Description text alignment */
+.problems-table td:nth-child(2) {
+  text-align: left;
+  padding: 0.75rem 1rem;
+}
+
+/* Make the table more compact */
+.problems-table {
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+/* Welcome message styling */
+.welcome-message {
+  background: linear-gradient(135deg, var(--green-50), var(--green-100));
+  padding: 1.5rem 2rem;
+  border-radius: 12px;
+  border-left: 4px solid var(--green-500);
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.welcome-message p {
+  color: var(--green-800);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin: 0;
+  font-weight: 500;
+}
+
+.welcome-message strong {
+  color: var(--green-600);
+  font-weight: 600;
+}
+
+/* Bold styling for specific columns */
+.problems-table td:nth-child(1), /* Title */
+.problems-table td:nth-child(3), /* Location */
+.problems-table td:nth-child(5) /* Votes */ {
+  font-weight: 600;
+  color: #1f2937;
+}
+
+/* Increase vote count size */
+.problems-table td:nth-child(5) {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #059669;
+}
+
+/* Add hover effect for vote count */
+.problems-table td:nth-child(5):hover {
+  transform: scale(1.1);
+  transition: transform 0.2s ease;
+}
+
+/* Enhance title and location text */
+.problems-table td:nth-child(1),
+.problems-table td:nth-child(3) {
+  text-transform: capitalize;
+  letter-spacing: 0.01em;
+}
+
+/* Add subtle highlight on hover for these cells */
+.problems-table td:nth-child(1):hover,
+.problems-table td:nth-child(3):hover {
+  background-color: rgba(5, 150, 105, 0.05);
+  transition: background-color 0.2s ease;
+}
+
+/* Status Filter Styles */
+.filter-container {
+  margin: 20px 0;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 20px;
+}
+
+.status-filter {
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: 2px solid var(--green-200);
+  font-size: 1rem;
+  width: 160px;
+  cursor: pointer;
+  background-color: white;
+  transition: all 0.2s ease;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 0.5rem center;
+  background-size: 1em;
+  padding-right: 2rem;
+}
+
+.status-filter:hover {
+  border-color: var(--green-400);
+}
+
+.status-filter:focus {
+  outline: none;
+  border-color: var(--green-500);
+  box-shadow: 0 0 0 2px rgba(5, 150, 105, 0.1);
+}
+
+/* Style for filter options */
+.status-filter option {
+  padding: 8px;
+  font-size: 0.95rem;
+}
+
+/* Add these status-specific background colors */
+.status-filter option[value="pending"] {
+  background-color: #fef3c7;
+}
+
+.status-filter option[value="reviewing"] {
+  background-color: #dbeafe;
+}
+
+.status-filter option[value="completed"] {
+  background-color: #d1fae5;
+}
+
+.status-filter option[value="rejected"] {
+  background-color: #fee2e2;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .head-dashboard {
+    padding: 1rem;
+  }
+
+  .problems-table th,
+  .problems-table td {
+    padding: 0.5rem;
+    font-size: 0.85rem;
+  }
+
+  .status-select {
+    width: 100px;
+    padding: 0.4rem 1.5rem 0.4rem 0.4rem;
+    font-size: 0.85rem;
+  }
+
+  .table-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+  }
+}
