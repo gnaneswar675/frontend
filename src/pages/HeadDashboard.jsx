@@ -6,6 +6,8 @@ const HeadDashboard = () => {
   const [problems, setProblems] = useState([]);
   const [sortConfig, setSortConfig] = useState({ key: null, direction: 'ascending' });
   const [, setError] = useState(null);
+  const [statusFilter, setStatusFilter] = useState('all');
+  const [filteredProblems, setFilteredProblems] = useState([]);
 
   // Sorting function
   const sortProblems = (problemsToSort, key) => {
@@ -73,6 +75,22 @@ const HeadDashboard = () => {
     }
   };
 
+  // Add this function to handle filtering
+  const handleStatusFilter = (selectedStatus) => {
+    setStatusFilter(selectedStatus);
+    if (selectedStatus === 'all') {
+      setFilteredProblems(problems);
+    } else {
+      const filtered = problems.filter(problem => problem.status === selectedStatus);
+      setFilteredProblems(filtered);
+    }
+  };
+
+  // Add this useEffect to initialize filtered problems
+  useEffect(() => {
+    setFilteredProblems(problems);
+  }, [problems]);
+
   useEffect(() => {
     loadProblems();
   }, []);
@@ -105,6 +123,20 @@ const HeadDashboard = () => {
         </div>
       </div>
 
+      <div className="filter-container">
+        <select 
+          className="status-filter"
+          value={statusFilter}
+          onChange={(e) => handleStatusFilter(e.target.value)}
+        >
+          <option value="all">All Status</option>
+          <option value="pending">Pending</option>
+          <option value="reviewing">Reviewing</option>
+          <option value="completed">Completed</option>
+          <option value="rejected">Rejected</option>
+        </select>
+      </div>
+
       <div className="table-container">
         <table className="problems-table">
           <thead>
@@ -125,7 +157,7 @@ const HeadDashboard = () => {
             </tr>
           </thead>
           <tbody>
-            {problems.map((problem) => (
+            {filteredProblems.map((problem) => (
               <tr key={problem._id}>
                 <td>{problem.title}</td>
                 <td>
@@ -142,7 +174,7 @@ const HeadDashboard = () => {
                 <td>{problem.votes}</td>
                 <td>
                   {problem.image && (
-                    <div className="problem-image">
+                    <div className="problem-image-container">
                       <img 
                         src={problem.image.url} 
                         alt={problem.title}
