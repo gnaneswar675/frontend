@@ -63,8 +63,9 @@ const HeadProblemsList = () => {
             {problem.image && (
               <div className="problem-image">
                 <img 
-                  src={`${config.UPLOAD_PATH}/${problem.image}`} 
-                  alt="Problem" 
+                  src={problem.image.url} 
+                  alt={problem.title}
+                  className="problem-image"
                 />
               </div>
             )}
