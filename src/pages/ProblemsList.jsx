@@ -290,7 +290,11 @@ const ProblemsList = ({ showLandingPage = true }) => {
                   <p className="problem-description">{problem.description}</p>
                   {problem.image && (
                     <div className="problem-image">
-                      <img src={`${config.UPLOAD_PATH}/${problem.image}`} alt="Problem" />
+                      <img 
+                        src={problem.image.url} 
+                        alt={problem.title}
+                        className="problem-image"
+                      />
                     </div>
                   )}
                   <div className="problem-meta">
