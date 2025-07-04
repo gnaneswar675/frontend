@@ -1,70 +1,91 @@
-# Getting Started with Create React App
+# 🏘️ Community Reporter and Monitoring Portal
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A MERN stack-based web application to help citizens report and monitor local community issues effectively.
 
-## Available Scripts
+🔗 **Live Demo**: [https://community-report.onrender.com/](https://community-report.onrender.com/)
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 📌 Project Overview
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+**Community Reporter and Monitoring Portal** is a web application that aims to resolve local village/city problems by connecting citizens with local area heads. Often, local issues like garbage overflow, potholes, or broken streetlights go unnoticed and can lead to serious problems if not addressed early.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+This portal allows **citizens** to report issues with detailed information, and **local heads** to monitor and prioritize the most critical problems based on community voting.
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 💡 Problem Statement
 
-### `npm run build`
+- Local issues often go unreported or unnoticed.
+- Village/city heads may not be present or aware of ground-level problems.
+- Small issues can lead to bigger environmental or health hazards.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## ✅ Solution
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+This web application empowers citizens to:
+- 📤 Post issues with title, description, image, location, and date.
+- 🗳️ Vote on the most urgent issues reported by others.
+- 🧑‍💼 Enable heads to view top-voted issues and prioritize resolutions.
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 🧱 Tech Stack
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 🖥️ Frontend
+- HTML, CSS, JavaScript
+- React.js
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### ⚙️ Backend
+- Node.js
+- Express.js
+- MongoDB (Atlas)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### 🛠️ Tools Used
+- **VS Code** – Development
+- **Postman** – API Testing
+- **MongoDB Atlas** – Cloud Database
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 🔐 User Roles
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- **Citizen Dashboard**:
+  - Submit issues with relevant details.
+  - View all reported issues.
+  - Vote on issues submitted by others.
 
-### Code Splitting
+- **Head Dashboard**:
+  - View all submitted issues.
+  - Sort issues based on votes.
+  - Mark issues as "Reviewed", "In Progress", or "Resolved".
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+---
 
-### Analyzing the Bundle Size
+## 📷 Screenshots (Optional)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+*(Add screenshots of citizen dashboard, head dashboard, issue submission form, etc.)*
 
-### Making a Progressive Web App
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## 🚀 How to Run Locally
 
-### Advanced Configuration
+```bash
+# Clone the repository
+git clone https://github.com/your-username/community-report.git
+cd community-report
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+# Install backend dependencies
+cd backend
+npm install
 
-### Deployment
+# Start backend server
+npm start
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+# Install frontend dependencies
+cd ../frontend
+npm install
 
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# Start frontend development server
+npm start
